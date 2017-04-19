@@ -54,6 +54,16 @@ public class TouristAttractions {
 
         put(CITY_SYDNEY, new ArrayList<Attraction>() {{
             add(new Attraction(
+                    "Taipei Hackerspace",
+                    "They built a hackerspace...",
+                    "They built a hackerspace bla bla bla.\n\nThey build a zoo. Dey build a zoo. Dey bild a zoo. Debil da zoo.",
+                    Uri.parse("https://lh3.googleusercontent.com/-jjwTV23FNAk/Vcc97_V_67I/AAAAAAAAE7A/FDgofxVogPo/w800-h800/IMG_1652.JPG"),
+                    Uri.parse("https://taipeihackerspace.github.io/blogimg/2013review_empty.jpg"), // not used?
+                    new LatLng(25.052896, 121.5146943),
+                    CITY_SYDNEY
+            ));
+
+            add(new Attraction(
                     "Sydney Opera House",
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae bibendum justo, vitae cursus velit. Suspendisse potenti.",
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae bibendum justo, vitae cursus velit. Suspendisse potenti. Suspendisse scelerisque risus justo, non tincidunt nibh blandit et. Vivamus elit lacus, luctus nec erat in, pharetra semper turpis. Quisque viverra nulla ligula, non pulvinar ante dictum sit amet. Vestibulum aliquet tortor mauris, vel suscipit nisl malesuada eget. Aliquam maximus dictum euismod. Maecenas leo quam, volutpat id diam eget, placerat fringilla ipsum. Nam pretium vehicula augue quis euismod.\n\nNam sed blandit magna. Vestibulum a fermentum arcu. Vestibulum et ligula at nisi luctus facilisis. Proin fermentum enim a nibh commodo finibus. Suspendisse justo elit, vulputate ut ipsum at, pellentesque auctor massa. Praesent vestibulum erat interdum imperdiet dapibus. In hac habitasse platea dictumst. Proin varius orci vitae tempor vulputate.\n\nEtiam sed mollis orci. Integer et ex sed tortor scelerisque blandit semper id libero. Nulla facilisi. Pellentesque tempor magna eget massa ultrices, et efficitur lectus finibus.",
