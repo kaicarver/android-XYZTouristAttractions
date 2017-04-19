@@ -33,17 +33,19 @@ import java.util.Map;
  */
 public class TouristAttractions {
 
-    public static final String CITY_SYDNEY = "Sydney";
+    private static final String CITY_SYDNEY = "Sydney";
+    private static final String CITY_TAIPEI = "Taipei";
 
     public static final String TEST_CITY = CITY_SYDNEY;
 
-    private static final float TRIGGER_RADIUS = 2000; // 2KM
+    private static final float TRIGGER_RADIUS = 200; // 200 meters
     private static final int TRIGGER_TRANSITION = Geofence.GEOFENCE_TRANSITION_ENTER |
             Geofence.GEOFENCE_TRANSITION_EXIT;
     private static final long EXPIRATION_DURATION = Geofence.NEVER_EXPIRE;
 
-    public static final Map<String, LatLng> CITY_LOCATIONS = new HashMap<String, LatLng>() {{
+    private static final Map<String, LatLng> CITY_LOCATIONS = new HashMap<String, LatLng>() {{
         put(CITY_SYDNEY, new LatLng(-33.873651, 151.2068896));
+        put(CITY_TAIPEI, new LatLng( 25.044788, 121.536636));
     }};
 
     /**
@@ -51,18 +53,33 @@ public class TouristAttractions {
      */
     public static final HashMap<String, List<Attraction>> ATTRACTIONS =
             new HashMap<String, List<Attraction>>() {{
+                put(CITY_TAIPEI, new ArrayList<Attraction>() {{
+                    add(new Attraction(
+                            "Taipei Hackerspace",
+                            "They built a hackerspace...",
+                            "They built a hackerspace bla bla bla.\n\nThey build a zoo. Dey build a zoo. Dey bild a zoo. Debil da zoo.",
+                            Uri.parse("https://lh3.googleusercontent.com/-jjwTV23FNAk/Vcc97_V_67I/AAAAAAAAE7A/FDgofxVogPo/w800-h800/IMG_1652.JPG"),
+                            Uri.parse("https://taipeihackerspace.github.io/blogimg/2013review_empty.jpg"), // not used?
+                            new LatLng(25.052919, 121.516883),
+                            CITY_TAIPEI
+                    ));
+                    add(new Attraction(
+                            "Confucius Temple",
+                            "The Taipei Confucius Temple is modeled after the original Confucius Temple in Qufu, Shandong, China.",
+                            "The Taipei Confucius Temple 臺北孔子廟 is modeled after the original Confucius Temple in Qufu, Shandong Province of China. It is located on Dalong Street, Datong District, Taipei City, Taiwan. Among the Confucius temples in Taiwan, Taipei's is the only one adorned with southern Fujian-style ceramic adornments. At the main hall of the temple one can see a black plaque with gold lettering which was inscribed by Chiang Kai-shek that reads \"Educate without Discrimination.\" Every year on September 28, a ceremony with traditional music and stylized dancing is held at the temple in honor of Confucius.\n" +
+                                    "\n" +
+                                    "The Taipei Confucius Temple was built in 1879 during the Qing era, after Taipeh Prefecture was established in 1875. During the Japanese era, the temple was demolished, but was rebuilt in 1930 by Wang Yi-Shun.\n" +
+                                    "\n" +
+                                    "The newly completed temple had only been in use for a few years when World War II broke out. The Japanese ordered an end to traditional Chinese ceremonies, and Japanese Shinto ritual music was played in the temple for a brief period until 1945 when Taiwan was taken under the administration of the Republic of China.",
+                            Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/ConfuciusTempleTaipei.jpg/320px-ConfuciusTempleTaipei.jpg"),
+                            Uri.parse("https://taipeihackerspace.github.io/blogimg/2013review_empty.jpg"), // not used?
+                            new LatLng(25.072941, 121.516498),
+                            CITY_TAIPEI
+                    ));
+                }});
 
-        put(CITY_SYDNEY, new ArrayList<Attraction>() {{
-            add(new Attraction(
-                    "Taipei Hackerspace",
-                    "They built a hackerspace...",
-                    "They built a hackerspace bla bla bla.\n\nThey build a zoo. Dey build a zoo. Dey bild a zoo. Debil da zoo.",
-                    Uri.parse("https://lh3.googleusercontent.com/-jjwTV23FNAk/Vcc97_V_67I/AAAAAAAAE7A/FDgofxVogPo/w800-h800/IMG_1652.JPG"),
-                    Uri.parse("https://taipeihackerspace.github.io/blogimg/2013review_empty.jpg"), // not used?
-                    new LatLng(25.052896, 121.5146943),
-                    CITY_SYDNEY
-            ));
 
+                    put(CITY_SYDNEY, new ArrayList<Attraction>() {{
             add(new Attraction(
                     "Sydney Opera House",
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae bibendum justo, vitae cursus velit. Suspendisse potenti.",
@@ -120,7 +137,7 @@ public class TouristAttractions {
      * Creates a list of geofences based on the city locations
      */
     public static List<Geofence> getGeofenceList() {
-        List<Geofence> geofenceList = new ArrayList<Geofence>();
+        List<Geofence> geofenceList = new ArrayList<>();
         for (String city : CITY_LOCATIONS.keySet()) {
             LatLng cityLatLng = CITY_LOCATIONS.get(city);
             geofenceList.add(new Geofence.Builder()
