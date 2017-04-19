@@ -64,6 +64,15 @@ public class TouristAttractions {
                             CITY_TAIPEI
                     ));
                     add(new Attraction(
+                            "Taipei Main Station",
+                            "Main train station.",
+                            "Trains!",
+                            Uri.parse("http://www.taipeimainstationhotels.com/img/taipeitrain.jpg"),
+                            Uri.parse("https://taipeihackerspace.github.io/blogimg/2013review_empty.jpg"), // not used?
+                            new LatLng(25.047701, 121.5169803),
+                            CITY_TAIPEI
+                    ));
+                    add(new Attraction(
                             "Confucius Temple",
                             "The Taipei Confucius Temple is modeled after the original Confucius Temple in Qufu, Shandong, China.",
                             "The Taipei Confucius Temple 臺北孔子廟 is modeled after the original Confucius Temple in Qufu, Shandong Province of China. It is located on Dalong Street, Datong District, Taipei City, Taiwan. Among the Confucius temples in Taiwan, Taipei's is the only one adorned with southern Fujian-style ceramic adornments. At the main hall of the temple one can see a black plaque with gold lettering which was inscribed by Chiang Kai-shek that reads \"Educate without Discrimination.\" Every year on September 28, a ceremony with traditional music and stylized dancing is held at the temple in honor of Confucius.\n" +
